@@ -1,18 +1,36 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <topNav @fileInput="fileInput" @share="shareFile" />
+    <Editor :inputFile="inputFile" :share="share" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Editor from '@/components/Editor.vue'
+import topNav from '@/components/TopNav.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Editor,
+    topNav
+  },
+  data () {
+    return {
+      inputFile: '',
+      share: false
+    }
+  },
+  methods: {
+    fileInput (file) {
+      this.inputFile = file
+    },
+    shareFile () {
+      this.share = true
+      setTimeout(() => {
+        this.share = false
+      }, 300)
+    }
   }
 }
 </script>

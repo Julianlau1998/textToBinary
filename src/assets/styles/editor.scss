@@ -1,0 +1,119 @@
+@import './variables.scss';
+
+.is-editor-wrapper {
+    margin-top: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;  
+    flex-direction: column;
+    width: 100vw;
+}
+
+.is-breakable {
+    word-break: break-all;
+}
+
+.is-editor {
+    width: 90vw;
+    position: relative;
+    height: 25vh;
+    background-color: $mainBackground;
+    border-radius: 20px;
+    outline: none;
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+.is-result {
+    width: 90vw;
+    background-color: $mainBackground;
+    border-radius: 20px;
+    outline: none;
+    font-size: 1.3rem;
+    padding: 10px;
+    border: 2px solid $secondary;
+    min-height: 25vh;
+}
+
+.is-markdown-content {
+    text-align: left !important;
+    max-width: 85vw;
+    margin: 0 5rem 0 5rem;
+    padding: 10px;
+    word-break: break-all;
+}
+
+.buttonsWrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -2rem;
+}
+
+img {
+    width: 68.5vw;
+    max-width: 30rem;
+}
+a {
+    color: $secondary;
+}
+a:visited {
+    color: $third;
+}
+
+//Code
+pre {
+    background-color: $secondBackground;
+    padding: 5px;
+}
+
+//Marking
+mark {
+    background-color: $fourth;
+    padding: 1px 5px 1px 5px;
+}
+
+// Tables
+tr, td {
+    min-width: 5rem;
+    padding: 0 10px 0 10px;
+}
+th, td {
+    padding: 5px;
+    border: 1px solid $primary;
+    margin: 20px;
+}
+
+blockquote {
+    background-color: $secondBackground;
+    border-left: 7px solid $primary;
+    padding-left: 4px;
+}
+
+@media (min-width: 1500px) {
+    .is-markdown-content {
+        max-width: 110rem;
+        margin: 0 20vw 0 20vw;
+    }
+}
+
+@media (min-width: 2000px) {
+    .is-markdown-content {
+        max-width: 110rem;
+        margin: 0 30vw 0 30vw;
+    }
+}
+
+@media (max-width: 605px) {
+    .is-markdown-content {
+        max-width: 85vw;
+        margin: 0 1rem 0 1rem;
+    }
+}
+@media (max-width: 380px) {
+    .is-markdown-content {
+        max-width: 85vw;
+        margin: 0;
+    }
+}
