@@ -125,7 +125,7 @@ export default {
             this.inputText = text
         },
         updateInputBinary (binary) {
-            if (binary !== '1' && binary !== '0')
+            if (binary !== '0' && binary !== '1')
             this.inputBinary = binary
         }
     }
