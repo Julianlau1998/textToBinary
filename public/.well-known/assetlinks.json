@@ -3,7 +3,7 @@
             "relation": ["delegate_permission/common.handle_all_urls"],
             "target" : { 
                   "namespace": "android_app",
-                  "package_name": "app.markdowneditor.jl.com",
+                  "package_name": "app.text2binary_jl.com",
                   "sha256_cert_fingerprints": ["B9:B7:F1:82:C6:43:71:24:D0:12:57:42:47:B3:3B:3A:23:0D:99:38:72:31:D9:1F:98:60:E5:7C:77:51:40:84"] }
             }
 ]
