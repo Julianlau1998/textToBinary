@@ -17,12 +17,13 @@
 .is-editor {
     width: 90vw;
     position: relative;
-    height: 25vh;
+    height: 12vh;
     background-color: $mainBackground;
     border-radius: 20px;
     outline: none;
     font-size: 1.3rem;
     padding: 10px;
+    max-width: 60rem;
 }
 
 .is-result {
@@ -33,7 +34,8 @@
     font-size: 1.3rem;
     padding: 10px;
     border: 2px solid $secondary;
-    min-height: 25vh;
+    min-height: 12vh;
+    max-width: 60rem;
 }
 
 .is-markdown-content {
