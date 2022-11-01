@@ -1,6 +1,6 @@
 module.exports = {
     pwa: {
-      name: 'Markdown Editor',
+      name: 'Text To Binary Converter',
       themeColor: '#2a343c',
       msTileColor: '#1a1c1e',
       navigationColor: "#1a1c1e",
