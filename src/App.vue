@@ -6,6 +6,30 @@
 
 <script>
   export default {
+    created () {
+      if (this.iosLiteApp) {
+        setTimeout(() => {
+          this.showInterstitial()
+        }, 20000)
+        setInterval(() => {
+          this.showInterstitial()
+        }, 70000)
+      }
+    },
+    computed: {
+      iosLiteApp () {
+        return window.webkit && window.webkit.messageHandlers
+      }
+    },
+    methods: {
+      showInterstitial () {
+        if (this.iosLiteApp) {
+          window.webkit.messageHandlers.showInterstitial.postMessage({
+            "message": 'showInterstitial'
+          })
+        }
+      }
+    }
   }
 </script>
 
