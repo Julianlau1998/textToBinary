@@ -3,21 +3,39 @@
        <div class="buttonsWrapper">
             <transition name="fade" mode="out-in">
                 <span v-if="!reverse" :key="1">
+                      <button
+                        @click="clear"
+                        class="button is-primary mt-5 pl-4"
+                      >
+                        Clear
+                        <span class="mr-2 is-bold">
+                          x
+                        </span>
+                      </button>
                     <button
                         @click="reverseElements"
                         class="button is-primary mt-5 pl-4"
                     >
                         Reverse
-                        <i class="fas fa-eye pl-1 pr-2" /> 
+                        <i class="fas fa-eye pl-1 pr-2" />
                     </button>
                 </span>
                 <span v-else :key="2">
+                        <button
+                            @click="clear"
+                            class="button is-primary mt-5 pl-4"
+                        >
+                          Clear
+                          <span class="mr-2 is-bold">
+                            x
+                          </span>
+                        </button>
                     <button
                         @click="reverseElements"
                         class="button is-primary mt-5 pl-4 is-center"
                     >
                         Reverse back
-                        <i class="fas fa-highlighter pl-1 pr-2" /> 
+                        <i class="fas fa-highlighter pl-1 pr-2" />
                     </button>
                 </span>
             </transition>
@@ -28,6 +46,7 @@
                 <textarea
                     v-bind:value="inputText"
                     @input="updateInputText($event.target.value)"
+                    @click="addClick"
                     class="is-editor pt-5 pb-5 is-primary mt-5"
                     placeholder="Type your text here"
                 />
@@ -42,6 +61,7 @@
                 <textarea
                     v-bind:value="inputBinary"
                     @input="updateInputBinary($event.target.value)"
+                    @click="addClick"
                     class="is-editor pt-5 pb-5 is-primary mt-5"
                     placeholder="Type your Binary here"
                     type="number"
@@ -78,8 +98,15 @@ export default {
             inputBinary: 0,
             reverse: false,
             markdownWrapper: '',
-            saveFileModalOpen: false
+            saveFileModalOpen: false,
+            clicks: 0
         }
+    },
+    created () {
+      this.clicks = parseInt(localStorage.getItem('clicks'))
+      if (this.clicks == null || isNaN(this.clicks)) {
+        this.clicks = 0
+      }
     },
     watch: {
         binaryValue (val) {
@@ -106,10 +133,14 @@ export default {
                 binCode.push(String.fromCharCode(parseInt(newBin[i], 2)));
             }
             return binCode.join("");
+        },
+        iosLiteApp () {
+          return window.webkit && window.webkit.messageHandlers
         }
     },
     methods: {
         reverseElements () {
+            this.addClick()
             this.reverse = !this.reverse
             if (this.reverse) {
                 this.inputBinary = this.binaryValue
@@ -117,16 +148,41 @@ export default {
             }
             if (!this.inputBinary.length) {
                 this.inputText = ''
-                return    
+                return
             }
             this.inputText = this.textValue
         },
         updateInputText (text) {
             this.inputText = text
+            if(this.inputText.length === 200) {
+              this.showInterstitial()
+              this.clicks = 0
+            }
         },
         updateInputBinary (binary) {
             if (binary !== '0' && binary !== '1')
             this.inputBinary = binary
+        },
+        clear () {
+          this.inputText = ''
+          this.inputBinary = ''
+        },
+        showInterstitial () {
+          if (this.iosLiteApp) {
+            window.webkit.messageHandlers.showInterstitial.postMessage({
+              "message": 'showInterstitial'
+            })
+          }
+        },
+        addClick () {
+          this.clicks += 1
+          localStorage.setItem('clicks', this.clicks)
+
+          if (this.clicks >= 8) {
+            this.showInterstitial()
+            localStorage.setItem('clicks', 1)
+            this.clicks = 1
+          }
         }
     }
 }

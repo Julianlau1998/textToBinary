@@ -11,7 +11,11 @@
 .is-justify-content-center {
     display: flex;
     justify-content: center;
-} 
+}
+
+.is-bold {
+    font-weight: 600;
+}
 
 .is-primary {
     color: $primary;
