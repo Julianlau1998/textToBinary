@@ -14,7 +14,7 @@
                       </button>
                     <button
                         @click="reverseElements"
-                        class="button is-primary mt-5 pl-4"
+                        class="button is-primary mt-1 pl-4"
                     >
                         Reverse
                         <i class="fas fa-retweet pl-1 pr-2" />

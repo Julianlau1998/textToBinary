@@ -6,7 +6,7 @@
                     text-2-bin
                 </span>
             </div>
-            <div class="column settingsWrapper">
+<!--            <div class="column settingsWrapper">
                 <div v-if="settings" class="settingsItems settings">
                     <label class="label is-pointer setting noselect">
                         <input @change="fileInput" accept=".txt, .md" type="file" required/>
@@ -31,10 +31,10 @@
                     </span>
                 </div>
                 <i
-                    class="fas fa-ellipsis-v settings-icon is-pointer"
+                    class="fas fa-bars settings-icon is-pointer"
                     @click="settings=!settings"
                 />
-            </div>
+            </div>-->
         </div>
     </div>
 </template>
