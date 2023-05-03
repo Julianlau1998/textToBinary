@@ -17,7 +17,7 @@
                         class="button is-primary mt-5 pl-4"
                     >
                         Reverse
-                        <i class="fas fa-eye pl-1 pr-2" />
+                        <i class="fas fa-retweet pl-1 pr-2" />
                     </button>
                 </span>
                 <span v-else :key="2">
@@ -35,7 +35,7 @@
                         class="button is-primary mt-5 pl-4 is-center"
                     >
                         Reverse back
-                        <i class="fas fa-highlighter pl-1 pr-2" />
+                        <i class="fas fa-retweet pl-1 pr-2" />
                     </button>
                 </span>
             </transition>
