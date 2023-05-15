@@ -7,14 +7,14 @@
 <script>
   export default {
     created () {
-/*      if (this.iosLiteApp) {
+      if (this.iosLiteApp) {
         setTimeout(() => {
           this.showInterstitial()
         }, 20000)
         setInterval(() => {
           this.showInterstitial()
         }, 70000)
-      }*/
+      }
     },
     computed: {
       iosLiteApp () {
@@ -22,6 +22,13 @@
       }
     },
     methods: {
+      showInterstitial() {
+        if (this.iosLiteApp) {
+          window.webkit.messageHandlers.showInterstitial.postMessage({
+            "message": 'showInterstitial'
+          })
+        }
+      }
     }
   }
 </script>

@@ -155,7 +155,7 @@ export default {
         updateInputText (text) {
             this.inputText = text
             if(this.inputText.length === 200) {
-              this.showInterstitial()
+              // this.showInterstitial()
               this.clicks = 0
             }
         },
@@ -179,7 +179,7 @@ export default {
           localStorage.setItem('clicks', this.clicks)
 
           if (this.clicks >= 8) {
-            this.showInterstitial()
+            // this.showInterstitial()
             localStorage.setItem('clicks', 1)
             this.clicks = 1
           }
