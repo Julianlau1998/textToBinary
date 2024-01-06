@@ -130,7 +130,9 @@ export default {
             let binCode = [];
 
             for (let i = 0; i < newBin.length; i++) {
-                binCode.push(String.fromCharCode(parseInt(newBin[i], 2)));
+                if (String.fromCharCode(parseInt(newBin[i], 2)) !== null && newBin[i].length > 0) {
+                    binCode.push(String.fromCharCode(parseInt(newBin[i], 2)))
+                }
             }
             return binCode.join("");
         },
@@ -164,6 +166,7 @@ export default {
             this.inputBinary = binary
         },
         clear () {
+          this.addClick()
           this.inputText = ''
           this.inputBinary = ''
         },
@@ -175,14 +178,7 @@ export default {
           }
         },
         addClick () {
-          this.clicks += 1
-          localStorage.setItem('clicks', this.clicks)
-
-          if (this.clicks >= 8) {
-            // this.showInterstitial()
-            localStorage.setItem('clicks', 1)
-            this.clicks = 1
-          }
+          this.$emit('click')
         }
     }
 }
