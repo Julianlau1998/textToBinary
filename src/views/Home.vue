@@ -53,7 +53,7 @@ export default {
       this.clicks += 1
       localStorage.setItem('clicks', this.clicks)
 
-      if (this.clicks >= 6) {
+      if (this.clicks >= 5) {
         this.showInterstitial()
         this.adShown = true
         localStorage.setItem('clicks', '0')
